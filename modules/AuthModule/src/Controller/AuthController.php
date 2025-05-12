@@ -14,7 +14,7 @@ class AuthController
     public static function login():string{
         $auth  = new AuthService(new \Modules\AuthModule\Repository\AuthRepository());
         if($auth->attempt($_POST['email'],$_POST['password'])){
-            header('Location:/todos');
+            header('Location:/candidater');
             exit;
         }
         return 'Identifiants invalides';

@@ -1,0 +1,89 @@
+:root {
+  --content--color: #f8f5f5;
+  --blue-color: #547792;
+  --font-Kumbh-Sans: "Kumbh Sans", sans-serif;
+  --font-Inter: "Inter", sans-serif;
+  --font-size: 16px;
+  --font-size--large: 20px;
+  --font-size--small: 12px;
+  --font-size--xlarge: 24px;
+  --font-size--xxlarge: 32px;
+}
+*{
+  font-family: var(--font-Inter);
+  box-sizing: border-box;
+  padding: 0;
+  text-decoration: none;
+  color: #000;
+  margin: 10px ;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px auto ;
+  padding: 1.5rem;
+  width: 60vh ;
+  min-width: 150px;
+  border: #547792 solid 1px;
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: rgb(84, 119, 146,.3) 1px solid;
+  border-radius: 10px;
+  padding: .5rem;
+  text-align: center;
+  font-size: var(--font-size);
+}
+
+.dropzone:hover {
+  cursor: pointer;
+    border-style:dashed;
+    border-color:#547792;
+    background-color: #f8f5f5;
+  transition: all 0.3s ease-in-out;
+}
+.dropzone  b {
+  color: var(--blue-color);
+  font-weight: 750;
+  opacity: 0.5;
+}
+.dropzone ion-icon {
+  font-size: 30px;
+  color: var(--blue-color);
+}
+form span{
+  color: #000;
+  font-size: 15px;
+  font-weight: 450;
+  text-align: start;
+  opacity: 0.5;
+}
+
+form input[type="submit"] {
+  background-color: var(--blue-color);
+  color: #fff;
+  border: none;
+  padding: .5rem;
+  border-radius: 10px;
+  font-size: var(--font-size);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+form input[type="submit"]:hover {
+  background-color: #fff;
+  color: var(--blue-color);
+  border: var(--blue-color) solid 1px;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+ .dragging{
+    border-style:dashed;
+    border-color:#547792;
+    background-color: #f8f5f5;
+}

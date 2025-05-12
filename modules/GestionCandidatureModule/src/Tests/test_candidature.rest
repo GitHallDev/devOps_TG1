@@ -1,0 +1,8 @@
+POST http://localhost:8000/candidater
+Content-Type: application/json
+
+{
+    "id_user":"2",
+    "id_prop":"1",
+    "cv"
+}

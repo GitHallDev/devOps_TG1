@@ -1,15 +1,10 @@
 <?php
-// src/Repository/UserRepository.php
+// src/Repository/AuthRepository.php
 namespace Modules\AuthModule\Repository;
 use PDO;
 
 class AuthRepository
 {
-    /**
-     * Note: Dans un vrai projet, on passerait par une vraie base de données,
-     * mais pour un mini-projet JSON suffit.
-     */
-    private string $file = __DIR__.'/../../data/user.json';
     private PDO $pdo;
 
     public function __construct(){

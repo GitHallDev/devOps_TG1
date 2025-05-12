@@ -26,6 +26,6 @@ $kernel = new \App\Kernel($modules);
 $response = $kernel->handle($_SERVER['REQUEST_METHOD'],$_SERVER['REQUEST_URI']);
 
 // 6) Envoi de la réponse au client
-echo $response;
+// echo $response;
 
  
