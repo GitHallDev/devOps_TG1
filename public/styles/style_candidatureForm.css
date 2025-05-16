@@ -1,0 +1,111 @@
+@import url("./variable_style.css");
+* {
+  font-family: var(--font-Inter);
+  box-sizing: border-box;
+  padding: 0;
+  text-decoration: none;
+  color: #000;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px auto;
+  padding: 1.5rem;
+  width: 35rem;
+  border: var(--blue-color) solid 1px;
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: rgb(84, 119, 146, 0.3) 1px solid;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 1rem;
+  text-align: center;
+  font-size: var(--font-size);
+}
+
+.dropzone:hover {
+  cursor: pointer;
+  border-style: dashed;
+  border-color: var(--blue-color);
+  background-color: #f8f5f5;
+  transition: all 0.3s ease-in-out;
+}
+.dropzone b {
+  color: var(--blue-color);
+  font-weight: 750;
+  opacity: 0.5;
+  padding: 10px;
+}
+.dropzone ion-icon {
+  font-size: 30px;
+  color: var(--blue-color);
+  padding: 10px;
+}
+form span {
+  color: #000;
+  font-size: 15px;
+  font-weight: 450;
+  text-align: start;
+  opacity: 0.5;
+  padding: 10px;
+}
+
+form input[type="submit"] {
+  background-color: var(--blue-color);
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: var(--font-size);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+form input[type="submit"]:hover {
+  background-color: #fff;
+  color: var(--blue-color);
+  border: var(--blue-color) solid 1px;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+.dragging {
+  border-style: dashed;
+  border-color: var(--blue-color);
+  background-color: #f8f5f5;
+}
+
+@media (max-width: 600px) {
+  form {
+    font-size: var(--font-size--xxlarge);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70%;
+  }
+  form input[type="submit"] {
+    width: 100%;
+    font-size: var(--font-size--xxlarge);
+  }
+  .dropzone {
+    width: 100%;
+    font-size: var(--font-size--xxlarge);
+  }
+  .dropzone b {
+    font-size: var(--font-size--xxlarge);
+  }
+  .dropzone ion-icon {
+    font-size: 60px;
+    color: var(--blue-color);
+    padding: 60px;
+  }
+  form span {
+    font-size: 30px;
+  }
+}

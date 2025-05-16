@@ -1,0 +1,10 @@
+POST http://localhost:8000/candidater
+Content-Type: application/json
+
+{
+    "id_user":"2",
+    "id_prop":"1",
+    "cv"
+}
+###
+GET http://localhost:8000/propositionByCand?id=2

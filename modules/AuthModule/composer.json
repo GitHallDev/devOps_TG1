@@ -1,0 +1,8 @@
+{
+  "name": "modules/auth-module",
+  "autoload": {
+    "psr-4": {
+      "Modules\\AuthModule\\": "src/"
+    }
+  }
+}
