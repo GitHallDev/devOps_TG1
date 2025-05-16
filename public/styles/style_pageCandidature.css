@@ -1,16 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kumbh+Sans:wght@100..900&display=swap");
+@import url("./variable_style.css");
 
-:root {
-  --content--color: #f8f5f5;
-  --blue-color: #547792;
-  --font-Kumbh-Sans: "Kumbh Sans", sans-serif;
-  --font-Inter: "Inter", sans-serif;
-  --font-size: 16px;
-  --font-size--large: 20px;
-  --font-size--small: 12px;
-  --font-size--xlarge: 24px;
-  --font-size--xxlarge: 32px;
-}
 * {
   margin: 0;
   font-family: var(--font-Inter);
@@ -24,13 +13,54 @@
 
 header {
   display: flex;
-  justify-content: end;
+  justify-content: space-around;
   align-items: center;
-  gap: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #fff;
+  height: 2.3rem;
   box-shadow: #000000 0px 0px 8px 0px;
   position: sticky;
+}
+
+header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+header .logo img {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+header button {
+  border: none;
+  background-color: transparent;
+}
+
+header button ion-icon {
+  font-size: 30px;
+  margin: 0 1rem;
+}
+
+header ion-icon:hover {
+  color: var(--blue-color);
+  transform: scale(1.2, 1.2);
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  font-size: 30px;
+  margin: 0 1rem;
+}
+
+header div:nth-child(3) {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 0 0.5rem;
+  gap: 1rem;
+  /* padding: 0 1rem; */
+  background-color: #fff;
   top: 0;
   z-index: 100;
   font-size: var(--font-size);
@@ -46,8 +76,8 @@ header {
 .profile img {
   border: 1px solid rgb(0, 0, 0, 0.2);
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  /* height: 30px; */
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -109,8 +139,8 @@ main {
   background-color: var(--content--color);
 }
 
-/* main  .sidebare */
-.sidebar {
+/* main  sidebare */
+#sidebar:popover-open {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -120,14 +150,27 @@ main {
   padding: 4rem 1rem;
   min-height: 37rem;
   background-color: #fff;
-  border: rgb(0, 0, 0, 0.2) 1.5px solid;
+  border: var(--border--color) 1.5px solid;
   border-radius: 5px;
   height: 112vh;
   top: -80px;
   left: 0;
-  z-index: 101;
+  /* z-index: 101; */
+  animation: slideInSideBar 200ms ease-in-out;
 }
-.sidebar h2 {
+@keyframes slideInSideBar {
+  0% {
+    translate: -50% 0 0;
+  }
+  100% {
+    translate: 0 0 0;
+  }
+}
+
+#sidebar:popover-open ~ .div-content {
+  width: 85%;
+}
+#sidebar h2 {
   font-family: var(--font-Inter);
   font-size: var(--font-size--large);
   color: rgb(0, 0, 0, 0.6);
@@ -136,7 +179,7 @@ main {
   position: relative;
   top: -50px;
 }
-.sidebar img {
+#sidebar img {
   width: 35px;
   height: 35px;
   margin-right: 1rem;
@@ -145,7 +188,7 @@ main {
   top: 15px;
 }
 
-.sidebar li {
+#sidebar li {
   display: flex;
   justify-content: start;
   align-items: start;
@@ -159,22 +202,22 @@ main {
   position: relative;
   top: -65px;
 }
-.sidebar li:hover {
+#sidebar li:hover {
   transform: scale(1.1);
   transition: all 0.3s ease;
   a {
-    color: #547792;
+    color: var(--blue-color);
   }
 }
 
-.logo {
+#sidebar .logo {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: transparent;
   width: 100%;
 }
-.logo img {
+#sidebar .logo img {
   width: 130px;
   height: 130px;
   position: relative;
@@ -188,7 +231,7 @@ main {
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  width: 82%;
+  width: 100%;
   height: 100%;
 }
 
@@ -204,7 +247,7 @@ main {
   justify-content: space-around;
   padding: 1rem;
   margin: 0.5rem 0;
-  border: rgb(0, 0, 0, 0.2) 1.5px solid;
+  border: var(--border--color) 1.5px solid;
   border-radius: 10px;
   width: 100%;
   background-color: #fff;
@@ -214,7 +257,7 @@ main {
   position: relative;
   width: 1px;
   height: 95%;
-  border: rgb(0, 0, 0, 0.2) 0.5px solid;
+  border: var(--border--color) 0.5px solid;
   border-radius: 10px;
   left: 25px;
   background-color: transparent;
@@ -250,7 +293,7 @@ main {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  border: rgb(0, 0, 0, 0.2) 1.5px solid;
+  border: var(--border--color) 1.5px solid;
   width: 100%;
   height: 100%;
   padding: 5px;
@@ -272,7 +315,7 @@ main {
   padding: 0 1rem;
   width: fit-content;
   margin: 1rem 1rem;
-  border: rgb(0, 0, 0, 0.2) 1.5px solid;
+  border: var(--border--color) 1.5px solid;
   border-radius: 5px;
 }
 
@@ -314,7 +357,7 @@ main {
   padding: 0.2rem 1rem;
   margin: 1rem 1rem;
   background-color: #fff;
-  border: rgb(0, 0, 0, 0.2) 1.5px solid;
+  border: var(--border--color) 1.5px solid;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -349,11 +392,10 @@ main {
   height: 100%;
   /* background-color: #fff; */
 }
+
 .content-tab table thead tr {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  padding: 1rem 1rem;
-  border-bottom: rgb(0, 0, 0, 0.2) 1px solid;
   gap: 3px;
   text-align: center;
 }
@@ -371,9 +413,8 @@ main {
   grid-template-columns: repeat(6, 1fr);
   gap: 3px;
   text-align: center;
-  /* width: 62rem; */
-  padding: 0.5rem 1rem;
-  border-bottom: rgb(0, 0, 0, 0.2) 1px solid;
+  padding: 0.5rem 0;
+  border-bottom: var(--border--color) 1px solid;
 }
 
 .content-tab table tbody tr img {
@@ -389,12 +430,13 @@ main {
 .content-tab table tbody tr td:nth-child(2n + 1) {
   font-weight: 600;
 }
-.content-tab table tbody tr td:nth-child(5) {
+.content-tab table tbody tr td:nth-child(5) button {
+  font-weight: 600;
   color: var(--blue-color);
   text-decoration: underline;
 }
 
-.content-tab table tbody tr td:nth-child(5):hover {
+.content-tab table tbody tr td:nth-child(5):hover button {
   cursor: pointer;
   transition: all 0.3s ease;
   opacity: 0.5;
@@ -436,8 +478,9 @@ main {
 }
 
 .accepter {
-  background-color: #c4f1b9;
-  color: rgb(30, 195, 71);
+  background-color: var(--vert-clair);
+  color: var(--vert-fonce);
+  border: rgb(30, 195, 71, 0.7) 1px solid;
 }
 .accepter .point-statut {
   content: "";
@@ -446,24 +489,28 @@ main {
 }
 
 .rejeter {
-  background-color: #f1b9b9;
-  color: #c31e1e;
+  background-color: var(--rouge-claire);
+  color: var(--rouge-fonce);
+  border: var(--rouge-fonce-rgb) 1px solid;
 }
 .rejeter .point-statut {
   content: "";
-  background-color: rgb(195, 30, 30, 0.7);
-  border: rgb(195, 30, 30, 0.7) 1px solid;
+  background-color: var(--rouge-fonce-rgb);
+  border: var(--rouge-fonce-rgb) 1px solid;
 }
 
 .en_cours {
   background-color: #94b4c1;
-  color: #547792;
+  color: var(--blue-color);
+  border: var(--bleu-fonce) 1px solid;
 }
 .en_cours .point-statut {
   content: "";
-  background-color: rgb(33, 52, 72, 0.7);
-  border: rgb(33, 52, 72, 0.7) 1px solid;
+  background-color: var(--bleu-fonce);
+  border: var(--bleu-fonce) 1px solid;
 }
+
+/* Pagination */
 
 .pagination {
   display: flex;
@@ -479,7 +526,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  border: rgb(0, 0, 0, 0.2) 1.5px solid;
+  border: var(--border--color) 1.5px solid;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   font-size: var(--font-size--small);
@@ -501,4 +548,264 @@ main {
   transform: scale(1.1);
   transition: all 0.3s ease;
   background-color: transparent;
+}
+
+/* affichage des popovers */
+
+#pop-up-infosProposition:popover-open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+  gap: 1rem;
+  font-weight: 400;
+
+  background-color: #fff;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  border: var(--border--color) 1.5px solid;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: var(--font-size);
+  margin: auto;
+  width: 600px;
+  height: 300px;
+  h3 {
+    width: 100%;
+    color: var(--blue-color);
+  }
+  span {
+    padding: 5px;
+    font-weight: 600;
+    color: var(--blue-color);
+    opacity: 0.5;
+    font-size: 18px;
+  }
+  button {
+    background-color: var(--blue-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: var(--font-size);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 0 auto;
+    width: 250px;
+  }
+  button:hover {
+    background-color: #fff;
+    color: var(--blue-color);
+    border: var(--blue-color) solid 1px;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+  animation: slideIn 150ms ease-in-out;
+}
+@keyframes slideIn {
+  0% {
+    translate: 100% 0 0;
+  }
+  100% {
+    translate: 0 0 0;
+  }
+}
+#pop-up-infosProposition::backdrop {
+  background-color: rgba(200, 200, 200, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+/* pop-up option */
+#pop-up-option:popover-open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  background: #f9f9f9;
+  border: #ccc solid 1px;
+  border-radius: 5px;
+  font-size: var(--font-size);
+  padding: 0.4rem;
+  gap: 2px;
+  width: max-content;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  button {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: var(--font-size--small);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    ion-icon {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+  }
+  button:nth-child(1):hover {
+    color: var(--rouge-fonce);
+    ion-icon {
+      color: var(--rouge-fonce);
+    }
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+  button:nth-child(2):hover {
+    color: var(--blue-color);
+    ion-icon {
+      color: var(--blue-color);
+    }
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+/*pop-up delete*/
+
+#delete-cand-dialog:popover-open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  font-weight: 400;
+
+  background-color: #fff;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  border: var(--border--color) 1.5px solid;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: var(--font-size);
+  margin: auto;
+  width: 300px;
+  height: 250px;
+
+  ion-icon {
+    font-size: 30px;
+    opacity: 0.6;
+    color: var(--rouge-fonce);
+  }
+  button {
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: var(--font-size--small);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 0 14px;
+    width: 60px;
+  }
+
+  button:nth-child(1) {
+    background-color: var(--rouge-fonce);
+  }
+  button:nth-child(1):hover {
+    background-color: #fff;
+    color: var(--rouge-fonce);
+    border: var(--rouge-fonce) solid 1px;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+
+  button:nth-child(2) {
+    background-color: var(--blue-color);
+  }
+  button:nth-child(2):hover {
+    background-color: #fff;
+    color: var(--blue-color);
+    border: var(--blue-color) solid 1px;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+#delete-cand-dialog::backdrop {
+  background-color: rgba(200, 200, 200, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+/* pop-up change Statut */
+
+#changeStatus-cand-dialog:popover-open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  font-weight: 400;
+
+  background-color: #fff;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  border: var(--border--color) 1.5px solid;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: var(--font-size);
+  margin: auto;
+  width: 400px;
+  height: 250px;
+
+  ion-icon {
+    font-size: 30px;
+    opacity: 0.6;
+    color: var(--blue-color);
+  }
+  button {
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: var(--font-size--small);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px 14px;
+    width: 73px;
+  }
+
+  button:nth-child(1) {
+    background-color: var(--vert-fonce);
+  }
+  button:nth-child(1):hover {
+    background-color: #fff;
+    color: var(--vert-fonce);
+    border: var(--vert-fonce) solid 1px;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+
+  input[type="radio"] {
+    /* display: block; */
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  button:nth-child(2) {
+    background-color: var(--blue-color);
+  }
+  button:nth-child(2):hover {
+    background-color: #fff;
+    color: var(--blue-color);
+    border: var(--blue-color) solid 1px;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+}
+#changeStatus-cand-dialog::backdrop {
+  background-color: rgba(200, 200, 200, 0.5);
+  backdrop-filter: blur(2px);
 }

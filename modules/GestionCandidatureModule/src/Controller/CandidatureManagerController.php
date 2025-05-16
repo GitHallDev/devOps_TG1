@@ -60,4 +60,21 @@ class CandidatureManagerController
             new \Modules\GestionCandidatureModule\Repository\CandidatureManagerRepository());
         return $candidature->getAllCandidatures();
     }
+
+    public static function get_proposition_by_candidature():string{
+                // recuperer l'id dans l'url
+        $id = $_GET['id'];
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        if ($id === false) {
+            // Gérer l'erreur, par exemple, rediriger ou afficher un message d'erreur
+            return 'ID invalide';
+        }
+        $id = intval($id);
+        $candidature = new CandidatureManagerService(
+            new \Modules\GestionCandidatureModule\Repository\CandidatureManagerRepository());
+            
+            echo json_encode($candidature->get_propositionByCandidature($id));
+            
+        return json_encode($candidature->get_propositionByCandidature($id));
+    }
 }

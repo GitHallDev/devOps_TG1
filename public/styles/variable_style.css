@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kumbh+Sans:wght@100..900&display=swap");
+
+:root {
+  /* Couleurs utilisées: */
+  --content--color: #f8f5f5;
+  --border--color: rgb(0, 0, 0, 0.2);
+
+  --blue-color: #547792;
+  --bleu-fonce: rgb(33, 52, 72, 0.7);
+
+  --vert-fonce: rgb(30, 195, 71);
+  --vert-clair: #c4f1b9;
+
+  --rouge-fonce: #c31e1e;
+  --rouge-fonce-rgb: rgb(195, 30, 30, 0.7);
+  --rouge-claire: #f1b9b9;
+
+  /*Polices utilisées :*/
+  --font-Kumbh-Sans: "Kumbh Sans", sans-serif;
+  --font-Inter: "Inter", sans-serif;
+
+  --font-size: 16px;
+  --font-size--large: 20px;
+  --font-size--small: 12px;
+  --font-size--xlarge: 24px;
+  --font-size--xxlarge: 32px;
+}

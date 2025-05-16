@@ -24,13 +24,16 @@ class CandidatureManagerRepository
         return $stmt->fetchAll();
     }
 
+    public function get_propositionBycand($id_prop_in_cand){
+        $stmt = $this->pdo->prepare('SELECT * from propositions where id_prop = :id');
+        $stmt->execute([':id'=>$id_prop_in_cand]);
+        
+        return $stmt->fetch();
+    }
+
     public function saveCandidature(array $candidature): void
     {
         try {
-            echo'<pre>';
-            print_r($candidature);
-            echo'</pre>';
-
             // Préparez la requête SQL
             $stmt = $this->pdo->prepare('INSERT INTO candidatures (cv, cover_letter, statuts, id_user, id_prop)
                                          VALUES(:cv, :cover_letter, :statuts, :id_user, :id_prop)');
@@ -69,7 +72,7 @@ class CandidatureManagerRepository
         $stmt->execute([$id]);
     return        $stmt->fetchAll();}
 
-        public function getCandidatureByID($id_cand):array{
+    public function getCandidatureByID($id_cand):array{
         $stmt = $this->pdo->prepare('SELECT * FROM candidatures
                                       WHERE id_cand = ?
                                     ');

@@ -32,8 +32,8 @@ class Module implements ModuleInterface
             $router->add('GET','/candidater',[Controller\CandidatureManagerController::class,'showCandidatureForm']); /* ex. /candidater?id_prop=1 */
             $router->add('POST','/candidater',[Controller\CandidatureManagerController::class,'candidater']);
             $router->add('GET','/candidatures',[Controller\CandidatureManagerController::class,'pageCandidatures']);
-            // $router->add('POST','/candidatures')
             $router->add('GET','/candidatureCV',[Controller\CandidatureManagerController::class,'getCandidatureCVById']); /* ex. /candidatureCV?id=1 */
             $router->add('GET','/candidatureLM',[Controller\CandidatureManagerController::class,'getCandidatureLMById']); /* ex. /candidatureLM?id=1 */
+            $router->add('GET','/propositionByCand',[Controller\CandidatureManagerController::class,'get_proposition_by_candidature']); /*ex. /propositionByCand?id=6 */
         }
 }
