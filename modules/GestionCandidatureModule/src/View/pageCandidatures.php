@@ -185,6 +185,26 @@ function filterByStatut($tab, $status) {
                 </div>
             </form>
         </div>
+        <div popover id="pop-up-create-stage-effectif">
+                <button popoverTarget="pop-up-create-stage-effectif"><ion-icon name="close"></ion-icon></button>
+
+            <div class="pop-up-header">
+                <h3>Créer Stage Effectif</h3>
+            </div>
+            <div class="pop-up-content">
+            <form action="" method="post">
+                <div>
+                    <label for="duration">Durée Effective :</label>
+                    <input type="number" name="duration" id="duration" readonly value="12" min="0" max="12" required> mois
+                    <label for="remunaration">Remuneration Effective :</label>
+                    <input type="number" min="0" required> FCFA/mois
+                </div><br>
+                <label for="sujet">Sujet Effectif :</label><br>
+                <textarea name="sujet" id="sujet" rows="6" cols="40"></textarea>
+                <button type="submit">Créer</button>
+            </form>
+            </div>
+        </div>
     </footer>
     <script src="./scripts/pagesCandidatures.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

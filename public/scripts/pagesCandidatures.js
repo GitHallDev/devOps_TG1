@@ -180,9 +180,13 @@ document
 
 // Gestion pop-up change statuts
 let pop_up_changeStatut = document.querySelector("#changeStatus-cand-dialog");
+let pop_up_create_stage_effectif = document.querySelector(
+  "#pop-up-create-stage-effectif"
+);
 document
   .querySelector("#btn-cancel-dialog-change")
   .addEventListener("click", (e) => {
     e.preventDefault();
     pop_up_changeStatut.hidePopover();
+    pop_up_create_stage_effectif.showPopover();
   });
