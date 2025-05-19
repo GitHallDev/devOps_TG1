@@ -1,4 +1,4 @@
-@import url("./variable_style.css");
+@import url("./../variable_style.css");
 * {
   font-family: var(--font-Inter);
   box-sizing: border-box;

@@ -8,10 +8,21 @@ class CandidatureManagerService
 {
     private CandidatureManagerRepository $repo;
 
+    /**
+     * Constructeur de la classe
+     */
     public function  __construct(CandidatureManagerRepository $repo){
         $this->repo =$repo;
     }
 
+    /**
+     * Soumet une candidature pour un utilisateur donné à une proposition spécifique.
+     *
+     * @param Candidature $candidature L'objet Candidature contenant les informations du candidat.
+     * @param int|string $id_user L'identifiant de l'utilisateur candidatant.
+     * @param int|string $id_prop L'identifiant de la proposition à laquelle postuler.
+     * @return bool Retourne true si la candidature a été enregistrée avec succès, false sinon.
+     */
     public function candidater(Candidature $candidature, $id_user, $id_prop):bool{
         try {
                     $this->repo->saveCandidature(['cv'=>$candidature->getCV(), 'cover_letter'=>$candidature->getCoverLetter(), 'statuts'=>$candidature->getStatuts(), 'id_user'=>$id_user,

@@ -6,7 +6,8 @@ if(!isset($_SESSION['user'])) {
     exit;
 }
 if($_SESSION['user']['role'] !== 'GC') {
-    header('Location: /login');
+    echo '<script> alert(" Vous n\'avez pas accès à cette page 😊 !") </script>';
+    header('Location: /Accueil');
     exit;
 }
 
@@ -27,7 +28,7 @@ function filterByStatut($tab, $status) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style_pageCandidature.css">
+    <link rel="stylesheet" href="./styles/GestionCandidature/style_pageCandidature.css">
     <title>Gestion Candidature</title>
 </head>
 <body>
@@ -206,7 +207,7 @@ function filterByStatut($tab, $status) {
             </div>
         </div>
     </footer>
-    <script src="./scripts/pagesCandidatures.js"></script>
+    <script src="./scripts/GestionCandidature/pagesCandidatures.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

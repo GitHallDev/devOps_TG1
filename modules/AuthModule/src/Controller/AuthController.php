@@ -14,7 +14,7 @@ class AuthController
     public static function login():string{
         $auth  = new AuthService(new \Modules\AuthModule\Repository\AuthRepository());
         if($auth->attempt($_POST['email'],$_POST['password'])){
-            header('Location:/candidater');
+            header('Location:/Accueil');
             exit;
         }
         return 'Identifiants invalides';
@@ -27,8 +27,9 @@ class AuthController
 
     public static function register():string{
         $auth = new AuthService(new \Modules\AuthModule\Repository\AuthRepository());
-        $auth -> register($_POST['email'],$_POST['password'],$_POST['nom'],$_POST['prenom'],$_POST['role']);
+        $auth -> register($_POST['email'],$_POST['password'],$_POST['nom'],$_POST['prenom'],'individus');
         header('Location:/login');
+        // echo $_POST['role'];
         exit;
     }
     public static function logout():void

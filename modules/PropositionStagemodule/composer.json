@@ -1,0 +1,15 @@
+{
+    "name": "catat/proposition-stagemodule",
+    "autoload": {
+        "psr-4": {
+            "Catat\\PropositionStagemodule\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Catatraore",
+            "email": "cheickatatraore@gmail.com"
+        }
+    ],
+    "require": {}
+}

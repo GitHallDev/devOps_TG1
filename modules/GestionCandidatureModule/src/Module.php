@@ -24,6 +24,13 @@ class Module implements ModuleInterface
                 return new Service\CandidatureManagerService ($c->get(Repository\CandidatureManageRepsitory::class));
             }
         );
+
+        $container->bind(
+            Service\StageManagerRepositoryService::class,
+            function($c){
+                return new Service\StageManagerService($c->get(Repository\ServiceManagerREpository::class));
+            }
+        );
     }
 
             public function boot(Router $router, EventDispatcher $dispatcher):void{
@@ -35,5 +42,7 @@ class Module implements ModuleInterface
             $router->add('GET','/candidatureCV',[Controller\CandidatureManagerController::class,'getCandidatureCVById']); /* ex. /candidatureCV?id=1 */
             $router->add('GET','/candidatureLM',[Controller\CandidatureManagerController::class,'getCandidatureLMById']); /* ex. /candidatureLM?id=1 */
             $router->add('GET','/propositionByCand',[Controller\CandidatureManagerController::class,'get_proposition_by_candidature']); /*ex. /propositionByCand?id=6 */
+            $router->add('POST','/createStageEffectif',[Controller\StageManagerController::class,'createStageEffectif']); /*ex. /createStageEffectif */
+            $router->add('GET','/stages',[Controller\StageManagerController::class,'showStageEffectifPage']); /*ex. /stages */
         }
 }
