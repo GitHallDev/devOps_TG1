@@ -1,17 +1,20 @@
 # Application Modulaire de Gestion de Stages
 
 ## Description
+
 Application modulaire développée en PHP vanilla pour la gestion des stages, candidatures et soutenances. L'application est construite avec une architecture modulaire permettant une séparation claire des fonctionnalités.
 
 ## Modules
 
 ### 1. Module d'Authentification (AuthModule)
+
 - Gestion des utilisateurs (inscription, connexion, déconnexion)
 - Gestion des profils utilisateurs
 - Historique des stages
 - Gestion des candidatures personnelles
 
 ### 2. Module de Gestion des Candidatures (GestionCandidatureModule)
+
 - Soumission de candidatures
 - Gestion des CV et lettres de motivation
 - Suivi des stages effectifs
@@ -19,12 +22,14 @@ Application modulaire développée en PHP vanilla pour la gestion des stages, ca
 - Système de notification par email
 
 ### 3. Module de Proposition de Stage (PropositionStageModule)
+
 - Création de propositions de stage
 - Gestion du statut des propositions (en cours, accepté, rejeté)
 - Interface de consultation des propositions
 - Tableau de bord administratif
 
 ## Prérequis
+
 - PHP 7.4 ou supérieur
 - Serveur MySQL/MariaDB
 - Composer (Gestionnaire de dépendances PHP)
@@ -34,12 +39,14 @@ Application modulaire développée en PHP vanilla pour la gestion des stages, ca
 ## Installation
 
 1. Cloner le dépôt :
+
 ```bash
 git clone [url-du-depot]
 cd my-modular-app
 ```
 
 ## Dépendances
+
 ```json
 {
   "require": {
@@ -50,22 +57,31 @@ cd my-modular-app
   }
 }
 ```
+
 ## Installation des dépendances :
+
 ```bash
 composer install
 ```
+
 ## Configuration
+
 - Copier le fichier .env.example en .env :
+
 ```bash
-cp .env.example .env    
+cp .env.example .env
 ```
-- Modifier les variables d'environnement dans le fichier.env avec les informations de connexion à la base de données.
+
+- Modifier les variables d'environnement dans le fichier.env avec les informations de connexion à la base de donnéeset dans le fichier container.php .
 
 ## Utilisation
+
 - Lancer le serveur local :
+
 ```bash
 php -S localhost:8000 -t public
 ```
+
 - Ouvrir le navigateur et accéder à l'application : ```
 - Ouvrir le navigateur et accéder à l'application : URL_ADDRESS:8000
 - Utiliser l'interface utilisateur pour se connecter, voir les propositions de stages , candidater, et gérer ces candidatures.
@@ -73,11 +89,15 @@ php -S localhost:8000 -t public
 - Utiliser l'interface de la Cellule de Collecte et Redaction pourla gestion des propositions de stage.
 - Utiliser l'interface de la Cellule de Gestion des Candidatures pour la gestion des candidatures, des stages effectifs, et des soutenances .
 - Accéder à l'interface d'administration pour la gestion des identifiants des structures partenaires et des Cellules de l'entreprise.
-``` 
-```	
+
+```
+
+```
+
 ## Routes :
 
 ### Module d'Authentification (AuthModule)
+
 Gestion des comptes :
 
 - GET /login : Affiche le formulaire de connexion
@@ -95,6 +115,7 @@ Gestion du profil :
 - GET /IntershipHistory : Affiche l'historique des stages de l'utilisateur
 
 ### Module de Gestion des Candidatures (GestionCandidatureModule)
+
 Gestion des candidatures :
 
 - GET /candidater : Affiche le formulaire de candidature
@@ -104,16 +125,16 @@ Gestion des candidatures :
 - GET /candidatureLM : Récupère la lettre de motivation d'une candidature
 - GET /propositionByCand : Obtient la proposition liée à une candidature
 - POST /deleteCandidature : Supprime une candidature
-Gestion des stages :
+  Gestion des stages :
 
 - POST /createStageEffectif : Crée un stage effectif
 - GET /Stages : Affiche la page des stages
 - GET /redirectionStage : Page de redirection des stages
-Gestion des soutenances :
+  Gestion des soutenances :
 
 - GET /planifierSoutenance : Formulaire de planification de soutenance
 - GET /Soutenances : Liste des soutenances
-API Soutenances :
+  API Soutenances :
 
 - GET /api/soutenances : Récupère toutes les soutenances
 - GET /api/soutenances/{id} : Récupère une soutenance spécifique
@@ -123,6 +144,7 @@ API Soutenances :
 - DELETE /api/soutenances/{id} : Supprime une soutenance
 
 ### Module de Proposition de Stage (PropositionStageModule)
+
 Gestion des propositions :
 
 - GET /Accueil : Page d'accueil
@@ -134,29 +156,36 @@ Gestion des propositions :
 - GET /PropositionDelete : Affiche la page de suppression
 - GET /propositionCreate : Affiche le formulaire de création
 - GET /PropositionBoard : Tableau de bord des propositions
-Autres fonctionnalités :
+  Autres fonctionnalités :
 
 - GET /api/sendmail : Route de test pour l'envoi d'emails de notification
 
 ## Configurationo et Exécution des Teests
+
 - Intalletion des dépendances de test:
+
 ```bash
 composer install --dev
 ```
+
 - Exécution des tests:
+
 ```bash
 composer test
 ```
+
 - Exécution des tests avec couverture de code:
+
 ```bash
 composer test-coverage
 ```
-- Visualisation des résultats :
- Les résultats des tests s'afficheront dans la console
- Le rapport de couverture sera généré dans le dossier tests/coverage
 
+- Visualisation des résultats :
+  Les résultats des tests s'afficheront dans la console
+  Le rapport de couverture sera généré dans le dossier tests/coverage
 
 ## Conventions de Codage
+
 - Suivre les standards PSR-4 pour l'autoloading
 - Utiliser les standards PSR-12 pour le style de code
 - Documenter les nouvelles fonctionnalités
