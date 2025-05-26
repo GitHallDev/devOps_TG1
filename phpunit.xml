@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         verbose="true">
+    <testsuites>
+        <testsuite name="Auth Module Tests">
+            <directory>modules/AuthModule/tests</directory>
+        </testsuite>
+        <testsuite name="Gestion Candidature Module Tests">
+            <directory>modules/GestionCandidatureModule/tests</directory>
+        </testsuite>
+        <testsuite name="Proposition Stage Module Tests">
+            <directory>modules/PropositionStagemodule/tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">modules/*/src</directory>
+        </include>
+        <exclude>
+            <directory>vendor</directory>
+            <directory>tests</directory>
+        </exclude>
+        <report>
+            <html outputDirectory="tests/coverage"/>
+            <text outputFile="tests/coverage.txt"/>
+        </report>
+    </coverage>
+
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="DB_CONNECTION" value="testing"/>
+    </php>
+</phpunit>

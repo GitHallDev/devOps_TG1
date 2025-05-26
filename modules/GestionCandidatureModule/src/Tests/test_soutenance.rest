@@ -1,0 +1,29 @@
+# Création d'une soutenance
+POST http://localhost:8000/api/soutenances
+Content-Type: application/json
+
+{
+    "id_stage": "2",
+    "date": "2024-03-20T14:00:00Z",
+    "jury": [
+            "Smith - John - PRESIDENT",
+            "Doe - Jane - MEMBRE",
+            "Jannette - Bernadet - MEMBRE"
+            ]
+}
+
+###
+# Recupérer les soutenances de la BDD
+GET http://localhost:8000/api/soutenances
+
+###
+# Récupérer les infortions d'une soutenance
+GET http://localhost:8000/api/soutenances/10
+
+###
+# Supprimer une soutenance
+DELETE  http://localhost:8000/api/soutenances/2
+
+###
+# Affichage de la page de modidication d'une soutenance
+GET http://localhost:8000/planifierSoutenance?id=13

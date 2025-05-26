@@ -4,6 +4,8 @@ namespace Modules\GestionCandidatureModule\Controller;
 
 use Modules\GestionCandidatureModule\Service\CandidatureManagerService;
 use Modules\GestionCandidatureModule\Modele\Candidature;
+use \App\MailService;
+use PDO;
 class CandidatureManagerController
 {
     public static function showCandidatureForm():string
@@ -27,6 +29,31 @@ class CandidatureManagerController
                                     }
                                     return 'Un problème est apparue lors du processus de candidature !';
     }
+
+    public static function deleteCandidature():string{
+        // recuperer l'id dans l'url
+        if($_SERVER['HTTP_CONTENT_TYPE']==='application/json'){
+            $data = json_decode(file_get_contents('php://input'), true);
+            $id = $data['id'];
+        }else{
+            $id = $_POST['id'];
+        }
+
+        if ($id === false) {
+            // Gérer l'erreur, par exemple, rediriger ou afficher un message d'erreur
+            return 'ID invalide';
+        }
+        $id = intval($id);
+        $candidature = new CandidatureManagerService(
+            new \Modules\GestionCandidatureModule\Repository\CandidatureManagerRepository());
+        if($candidature->deleteCandidature($id)){
+            echo json_encode(['success' => true]);
+            // header('Location:candidatures');
+            exit;
+        }
+        return 'Un problème est apparue lors de la suppression de la candidature !';
+    }
+
     public static function getCandidatureCVById():array{
         // recuperer l'id dans l'url
         $id = $_GET['id'];
@@ -41,7 +68,7 @@ class CandidatureManagerController
         return $candidature->getCandidatureCVById($id);
     }
 
-        public static function getCandidatureLMById():array{
+    public static function getCandidatureLMById():array{
         // recuperer l'id dans l'url
         $id = $_GET['id'];
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -72,9 +99,21 @@ class CandidatureManagerController
         $id = intval($id);
         $candidature = new CandidatureManagerService(
             new \Modules\GestionCandidatureModule\Repository\CandidatureManagerRepository());
-            
             echo json_encode($candidature->get_propositionByCandidature($id));
-            
         return json_encode($candidature->get_propositionByCandidature($id));
+    }
+
+    public static function sendMailNotification():void{
+        try {
+                    $c = new \App\Container();
+        $pdo = $c->get(\PDO::class);
+        echo 'Envoi de la notification par mail...';
+        $mailService = new MailService($pdo);
+        $mailService->envoyerNotification('candidatures', 18, 'accepter');
+        } catch (\Throwable $th) {
+            $logger = new \App\Logger('error');
+            $logger->error('Erreur lors de l\'envoi de la notification par mail : ' . $th->getMessage());
+            echo 'Erreur lors de l\'envoi de la notification par mail : ' . $th->getMessage();
+        }
     }
 }

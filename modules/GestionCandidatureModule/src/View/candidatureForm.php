@@ -8,7 +8,8 @@ if(!isset($_SESSION['user'])){
 }
 // Vérifier si l'utilisateur a le rôle d'individu
     if($_SESSION['user']['role'] !== 'individus'){
-        header('Location: /');
+        echo '<script> alert(" Vous n\'avez pas accès à cette page 😊 !") <\script>';
+        header('Location: /login');
         exit();
     }
 
@@ -17,14 +18,15 @@ if(!isset($_SESSION['user'])){
     if ($id_prop === false) {
         // Gérer l'erreur, par exemple, rediriger ou afficher un message d'erreur
             $id_prop = intval($id_prop);
-        if($id_prop <= 0)
+        if($id_prop <= 0){
+        echo '<script> alert(" Vous n\'avez pas accès à cette page 😊 !") <\script>';
         header('Location: /');
-        exit();
+        exit();}
     }  
     $id_prop = intval($id_prop);
 
 ?>
-<link rel="stylesheet" href="./styles/style_candidatureForm.css">
+<link rel="stylesheet" href="./styles/GestionCandidature/style_candidatureForm.css">
 <form action="/candidater" id = "candidature-form" method="post" enctype= "multipart/form-data">
     <h2>Candidater</h2>
 Selectionner les fichiers à uploader 
@@ -49,6 +51,6 @@ Selectionner les fichiers à uploader
 <input type="submit" id = "submit-btn"value="Candidater">
 </form>
 
-<script src="./scripts/candidatureForm.js"></script>
+<script src="./scripts/GestionCandidature/candidatureForm.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

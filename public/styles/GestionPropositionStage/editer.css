@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
+
+:root {
+  --blue-color: #547792;
+  --blue-color-hover: #3e5d74;
+
+  --text-color: #000;
+  --background: #ffffff;
+  --form-bg: #f9f9f9;
+  --input-bg: #fffaf5;
+  --structure-bg: #e3f2dc;
+  --sujet-bg: #e1edf5; /* Bleu uniforme pour champ sujet */
+
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  --font-main: "Kumbh Sans", "Segoe UI", sans-serif;
+
+  --font-size: 14px;
+  --font-size-lg: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--form-bg);
+  padding: 40px;
+  margin: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background-color: var(--background);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-color);
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: var(--font-size);
+  background-color: var(--input-bg);
+}
+
+/* Champ SUJET avec bleu uniforme */
+input[name="sujet"],
+textarea[name="sujet"] {
+  background-color: var(--sujet-bg);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  background-color: var(--structure-bg);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.structure-box {
+  background-color: var(--structure-bg);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.buttons {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.buttons input[type="submit"] {
+  padding: 10px 25px;
+  font-size: var(--font-size);
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--blue-color);
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.buttons input[type="submit"]:hover {
+  background-color: var(--blue-color-hover);
+}
+
+.cancel {
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: var(--font-size);
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dddddd;
+  color: var(--text-color);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.cancel:hover {
+  background-color: #c0c0c0;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

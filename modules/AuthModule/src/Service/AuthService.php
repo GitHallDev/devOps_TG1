@@ -34,6 +34,14 @@ class AuthService
         session_destroy();
     }
 
+    
+    public function updateAccount(array $userData): void
+    {
+        $this->repo->update($userData);
+        $_SESSION['user'] = $userData;
+    }
+
+    
     public function user():?array
     {
         return $_SESSION['user']??null;

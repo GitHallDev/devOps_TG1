@@ -1,0 +1,8 @@
+{
+  "name": "modules/manageCandidature-module",
+  "autoload": {
+    "psr-4": {
+      "Modules\\GestionCandidature\\": "src/"
+    }
+  }
+}

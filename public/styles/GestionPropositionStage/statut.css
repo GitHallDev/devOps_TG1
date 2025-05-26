@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
+
+:root {
+  --blue-color: #547792;
+  --blue-color-hover: #3e5d74;
+
+  --text-color: #000;
+  --background: #ffffff;
+  --form-bg: #f9f9f9;
+  --input-bg: #d0e7ff; /* bleu uniforme clair pour les inputs */
+  --sujet-bg: #e1edf5; /* bleu uniforme clair spécifique au sujet */
+
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  --font-main: "Kumbh Sans", "Segoe UI", sans-serif;
+
+  --font-size: 14px;
+  --font-size-lg: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--form-bg);
+  padding: 50px 20px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.form-wrapper {
+  background-color: var(--background);
+  padding: 30px 35px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 550px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+form input[type="text"],
+form select {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--font-size);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  background-color: var(--input-bg);
+}
+
+/* Champ SUJET avec bleu uniforme plus clair */
+input[name="sujet"],
+textarea[name="sujet"] {
+  background-color: var(--sujet-bg);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--blue-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: var(--font-size);
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--blue-color-hover);
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: var(--blue-color);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+  color: var(--blue-color-hover);
+  text-decoration: underline;
+}

@@ -1,0 +1,11 @@
+POST http://localhost:8000/createStageEffectif
+Content-Type: application/json
+
+{
+    "duration":3,
+    # "id_cand":2,
+    "id_user":2,
+    "sujet_effectif":"Use Ai like code assistant  to improve productivity",
+    "remuneration_effective":3000000,
+    "encadreur":"Karel-Bibiane-IA1O"
+}

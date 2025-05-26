@@ -1,0 +1,85 @@
+@import url("./../variable_style.css");
+
+/* Corps de page */
+body {
+  font-family: var(--font-Kumbh-Sans);
+  background-color: var(--content--color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur du formulaire */
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(33, 52, 72, 0.1); /* inspiré de --bleu-fonce */
+}
+
+/* Titre */
+.container h2 {
+  text-align: center;
+  color: var(--blue-color);
+  font-size: var(--font-size--xlarge);
+  margin-bottom: 25px;
+}
+
+/* Formulaire */
+form label {
+  font-weight: 600;
+  margin-top: 18px;
+  display: block;
+  color: var(--bleu-fonce);
+  font-size: var(--font-size);
+}
+
+form select,
+form textarea,
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid var(--border--color);
+  border-radius: 8px;
+  font-size: var(--font-size);
+  font-family: var(--font-Inter);
+  transition: border-color 0.3s ease;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form select:focus,
+form textarea:focus,
+form input:focus {
+  border-color: var(--blue-color);
+  outline: none;
+}
+
+/* Bouton */
+button {
+  margin-top: 30px;
+  padding: 14px;
+  background-color: var(--blue-color);
+  color: white;
+  font-size: var(--font-size);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--bleu-fonce);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+    margin: 30px 10px;
+  }
+}
