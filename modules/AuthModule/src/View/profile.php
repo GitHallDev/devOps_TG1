@@ -44,8 +44,8 @@
             <a href="/Accueil">Retourner à l'Accueil<span class="arrow">&gt;</span></a>
         </div>
 
-        <form class="logout-form">
-            <button type="button" class="logout-btn">Log out</button>
+        <form action= '/logout' method='GET' class="logout-form">
+            <button type="submit" class="logout-btn">Log out</button>
         </form>
     </div>
 </body>

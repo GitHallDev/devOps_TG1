@@ -23,7 +23,7 @@ class MailService {
         
         switch ($type) {
             case 'candidatures':
-                $stmt = $this->pdo->prepare("SELECT u.email, u.nom, u.prenom CONCAT('Votre candidature pour stage : ', p.sujet) AS sujet
+                $stmt = $this->pdo->prepare("SELECT u.email, u.nom, u.prenom, CONCAT('Votre candidature pour stage : ', p.sujet) AS sujet
                                              FROM t1_candidatures c
                                              JOIN t1_users u ON c.ID_user = u.ID_user
                                              JOIN t1_propositions p ON c.ID_prop = p.ID_prop
@@ -31,12 +31,12 @@ class MailService {
                 break;
 
             case 'propositions':
-                $stmt = $this->pdo->prepare("SELECT u.email, u.nom, u.prenom CONCAT(' Votre proposition de stage : ', p.sujet) AS sujet
+                $stmt = $this->pdo->prepare("SELECT u.email, u.nom, u.prenom, CONCAT(' Votre proposition de stage : ', p.sujet) AS sujet
                                              FROM t1_propositions p
                                              JOIN t1_users u ON p.ID_user = u.ID_user
                                              WHERE p.ID_prop = ?");
             case 'planifications':
-                $stmt = $this->pdo->prepare("SELECT u.email, u.nom, u.prenom CONCAT('Votre Soutenance : Pour le ', s.Date) AS sujet
+                $stmt = $this->pdo->prepare("SELECT u.email, u.nom, u.prenom, CONCAT('Votre Soutenance : Pour le ', s.Date) AS sujet
                                              FROM t1_soutenances s
                                              JOIN t1_stages st ON s.ID_stage = st.ID_stage
                                              JOIN t1_users u ON st.ID_user = u.ID_user
