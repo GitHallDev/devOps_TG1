@@ -23,13 +23,13 @@ class Container implements ContainerInterface
      * Binding automatique du service PDO** au démarrage du conteneur
      */
         $this->bind(\PDO::class,function(){
-            // Lecture des pzrzmètres depuis les variables d'environnement
+            // Lecture des paramètres depuis les variables d'environnement
             $driver = getenv('DB_DRIVER')?:'mysql';
             $host = getenv('DB_HOST')?:'localhost';
             $port = getenv('DB_PORT')?:'3306';
-            $db = getenv('DB_DATABASE')?:'stage_manager_app';
-            $user = getenv('DB_USERNAME')?:'root';
-            $pass = getenv('DB_PASSWORD')?:'';
+            $db = getenv('DB_DATABASE')?:'hqgro1875380';
+            $user = getenv('DB_USERNAME')?:'hqgro1875380';
+            $pass = getenv('DB_PASSWORD')?:'huauuefewf';
             // Contruction du DNS
             $dns = "$driver:host=$host;port=$port;dbname=$db;charset=utf8";
             return new \PDO($dns, $user,$pass,[

@@ -37,6 +37,11 @@ class Module implements Moduleinterface
         $router->add('GET','/register',[Controller\AuthController::class,'showRegisterForm']);
         $router->add('POST','/register',[Controller\AuthController::class,'register']);
         $router->add('GET','/logout',[Controller\AuthController::class,'logout']);
-
+        $router->add('GET','/profile',[Controller\AuthController::class,'showProfile']);
+        $router->add('GET','/EditAccount',[Controller\AuthController::class,'showEditAccount']);
+        $router->add('POST','/EditAccount',[Controller\AuthController::class,'editAccount']);
+        $router->add('GET','/candidacy',[Controller\AuthController::class,'showcandidacy']);
+        $router->add('GET','/IntershipHistory',[Controller\AuthController::class,'showIntershipHistory']);
+        
     }
 }

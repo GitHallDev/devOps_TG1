@@ -156,12 +156,44 @@ btn_options.forEach((element) => {
 
     pop_up_option.style.top = `${rect.bottom + scrollTop}px`;
     pop_up_option.style.left = `${rect.left + scrollLeft - 40}px `;
+
+    pop_up_option.dataset.id = btn.dataset.id;
+    pop_up_option.dataset.id_user = btn.dataset.id_user;
+    pop_up_option.dataset.id_prop = btn.dataset.id_prop;
     pop_up_option.showPopover();
   });
 });
 
-document.querySelector("#btn-option-delete").addEventListener("click", () => {
-  pop_up_option.hidePopover();
+// Gestion pop-up delete
+
+document.querySelector("#btn-delete-cand").addEventListener("click", () => {
+  let id = pop_up_option.dataset.id;
+  let url = `/deleteCandidature`;
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: id,
+    }),
+  })
+    .then((response) => {
+      pop_up_option.hidePopover();
+      if (response.ok) return response.json();
+      else
+        throw new Error(
+          `Erreur lors du chargement des données: ${response.json()}`
+        );
+    })
+    .then((data) => {
+      console.log(data);
+      if (data.success) {
+        window.location.reload();
+      } else {
+        alert("Erreur lors de la suppression de la candidature");
+      }
+    });
 });
 
 document
@@ -170,7 +202,6 @@ document
     pop_up_option.hidePopover();
   });
 
-// Gestion pop-up delete
 let pop_up_delete = document.querySelector("#delete-cand-dialog");
 document
   .querySelector("#btn-cancel-dialog-delete")
@@ -188,5 +219,54 @@ document
   .addEventListener("click", (e) => {
     e.preventDefault();
     pop_up_changeStatut.hidePopover();
-    pop_up_create_stage_effectif.showPopover();
   });
+
+let btn_change_statut = document.querySelector("#btn-change-statuts");
+let ChangeStatutForm = document.querySelector("#ChangeStatutForm");
+
+btn_change_statut.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  let formData = new FormData(ChangeStatutForm);
+
+  if (formData.get("statuts") == "accepter") {
+    pop_up_changeStatut.hidePopover();
+    let id = pop_up_option.dataset.id;
+    let id_prop = pop_up_option.dataset.id_prop;
+    let id_user_value = pop_up_option.dataset.id_user;
+
+    let url = `/propositionByCand?id=${id_prop}`;
+
+    fetch(url)
+      .then((res) => {
+        if (res.ok) return res.json();
+        else
+          throw new Error(
+            `Erreur lors du chargement des données: ${response.json()}`
+          );
+      })
+      .then((data) => {
+        let duree = document.querySelector("#duration-stage-effectif");
+        let remuneration = document.querySelector(
+          "#remuneration-stage-effectif"
+        );
+        let sujet = document.querySelector("#sujet-stage-effectif");
+        let id_cand = document.querySelector("#id_cand");
+        let id_user = document.querySelector("#id_user");
+        duree.value = data.Duree;
+        remuneration.value = data.remuneration;
+        sujet.value = data.sujet;
+        id_cand.value = Number(id);
+        id_user.value = Number(id_user_value);
+      });
+
+    pop_up_create_stage_effectif.showPopover();
+  } else {
+    pop_up_changeStatut.hidePopover();
+  }
+});
+
+// Gestion pop-up create stage effectif
+let btn_create_stage_effectif = document.querySelector(
+  "#btn-create-stage-effectif"
+);

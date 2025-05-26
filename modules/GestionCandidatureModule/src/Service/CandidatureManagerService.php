@@ -51,8 +51,12 @@ class CandidatureManagerService
         return $candidature;
     }
 
-    public function get_propositionByCandidature($id_prop_in_cand):array{
+    public function get_propositionByCandidature(int $id_prop_in_cand):array{
         return $this->repo->get_propositionBycand($id_prop_in_cand);
+    }
+
+    public function deleteCandidature(int $id_cand):bool{
+        return $this->repo->deleteCandidature($id_cand);
     }
 
 }

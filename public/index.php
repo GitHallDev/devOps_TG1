@@ -34,4 +34,10 @@ $response = $kernel->handle($_SERVER['REQUEST_METHOD'],$_SERVER['REQUEST_URI']);
 // 7) Envoi de la réponse au client
 // echo $response;
 
+// 8)Ouvrir la page d'accueil
+if ($_SERVER['REQUEST_URI'] === '/') {
+    header('Location: /Accueil');
+    exit;
+}
+
  

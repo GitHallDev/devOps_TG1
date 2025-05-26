@@ -3,7 +3,7 @@ session_start();
     use Modules\PropositionStagemodule\Controller\PropositionStageController;
 
     $controller= new PropositionStageController();
-    $propositions=$controller->getAllPropositions();
+    $propositions=$controller->getAllPropositionsAccepted();
 
 ?>
 <!DOCTYPE html>

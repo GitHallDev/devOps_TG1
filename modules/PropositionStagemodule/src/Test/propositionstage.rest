@@ -1,0 +1,46 @@
+# Page de gestion des propositions de stage
+GET http://localhost:8000/PropositionBoard
+
+###
+# Creation d'unc proposition de stage
+POST http://localhost:8000/proposition/create
+Content-Type: application/json
+
+{
+    "sujet":"azihcybaidvubc peiubcpeizubcpiezubvpuizebdvicuez",
+    "Duree":4,
+    "remuneration":250000,
+    "createBy":"moi même"
+}
+
+### 
+# Supprimer une proposition de stage
+POST http://localhost:8000/proposition/delete
+Content-Type: application/json
+
+{
+    "id":7
+}
+
+###
+# modifier une proposition existente
+POST http://localhost:8000/proposition/update
+Content-Type: application/json
+
+{
+    "id":5,
+    "sujet": "l'integration de l'Ia dans le service client des site d'ecommerce ",
+    "Duree":3,
+    "remuneration":250000,
+    "create_by":"toi aussi"
+}
+
+###
+# modifier le statuts d'une proposition
+POST http://localhost:8000/proposition/statuts
+Content-Type: application/json
+
+{
+    "id":5,
+    "statuts":"accepter"
+}

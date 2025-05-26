@@ -1,2 +1,13 @@
 # Recuperer une proposition avec son id dans la table candidature
-GET http://localhost:8000/propositionByCand?id=2
+GET http://localhost:8000/propositionByCand?id=1
+###
+POST http://localhost:8000/deleteCandidature
+Content-Type: application/json
+
+{
+    "id": 2
+}
+
+###
+# envoyer un mail de confirmation de candidature
+GET http://localhost:8000/api/sendmail

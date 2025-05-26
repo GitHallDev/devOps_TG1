@@ -1,5 +1,5 @@
 @import url("./../variable_style.css");
-
+@import url('./../GestionCandidature/header&sidebar_style.css');
 * {
   margin: 0;
   font-family: var(--font-Inter);
@@ -7,222 +7,6 @@
   padding: 0;
   text-decoration: none;
   color: #000;
-}
-
-/* header */
-
-header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 2.3rem;
-  box-shadow: #000000 0px 0px 8px 0px;
-  position: sticky;
-}
-
-header .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-header .logo img {
-  width: 60px;
-  height: 60px;
-  position: relative;
-}
-header button {
-  border: none;
-  background-color: transparent;
-}
-
-header button ion-icon {
-  font-size: 30px;
-  margin: 0 1rem;
-}
-
-header ion-icon:hover {
-  color: var(--blue-color);
-  transform: scale(1.2, 1.2);
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-  font-size: 30px;
-  margin: 0 1rem;
-}
-
-header div:nth-child(3) {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  margin: 0 0.5rem;
-  gap: 1rem;
-  /* padding: 0 1rem; */
-  background-color: #fff;
-  top: 0;
-  z-index: 100;
-  font-size: var(--font-size);
-}
-
-.profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-}
-
-.profile img {
-  border: 1px solid rgb(0, 0, 0, 0.2);
-  border-radius: 50%;
-  width: 20px;
-  /* height: 30px; */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.separatorHeader {
-  width: 1.5px;
-  height: 30px;
-  background-color: #000;
-  opacity: 0.2;
-  margin: 0 1rem;
-}
-.notification {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-left: 1rem;
-  background-color: transparent;
-  border-radius: 50%;
-}
-
-.notification:hover {
-  transform: scale(1.1);
-  opacity: 0.4x;
-}
-
-.notification img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  padding: 2px;
-  background-color: #fff;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.notification .notification-badge {
-  position: absolute;
-  top: 0px;
-  right: 5px;
-  background-color: #ff0000;
-  color: #fff;
-  border-radius: 50%;
-  padding: 2px 3px;
-  font-size: var(--font-size--small);
-}
-
-/* main */
-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  align-items: start;
-  padding: 2rem 1rem;
-  height: 25.5rem;
-  min-height: 92.2vh;
-  font-size: var(--font-size);
-  overflow-y: hidden;
-  background-color: var(--content--color);
-}
-
-/* main  sidebare */
-#sidebar:popover-open {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  gap: 1rem;
-  padding: 4rem 1rem;
-  min-height: 37rem;
-  background-color: #fff;
-  border: var(--border--color) 1.5px solid;
-  border-radius: 5px;
-  height: 112vh;
-  top: -80px;
-  left: 0;
-  /* z-index: 101; */
-  animation: slideInSideBar 200ms ease-in-out;
-}
-@keyframes slideInSideBar {
-  0% {
-    translate: -50% 0 0;
-  }
-  100% {
-    translate: 0 0 0;
-  }
-}
-
-#sidebar:popover-open ~ .div-content {
-  width: 85%;
-}
-#sidebar h2 {
-  font-family: var(--font-Inter);
-  font-size: var(--font-size--large);
-  color: rgb(0, 0, 0, 0.6);
-  margin-bottom: 1rem;
-  font-weight: 300;
-  position: relative;
-  top: -50px;
-}
-#sidebar img {
-  width: 35px;
-  height: 35px;
-  margin-right: 1rem;
-  background-color: transparent;
-  position: relative;
-  top: 15px;
-}
-
-#sidebar li {
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  text-decoration: none;
-  list-style: none;
-  /* border: #000000 0.5px solid; */
-  padding-bottom: 6px;
-  margin: 8px 0;
-  width: 100%;
-  font-weight: 600;
-  position: relative;
-  top: -65px;
-}
-#sidebar li:hover {
-  transform: scale(1.1);
-  transition: all 0.3s ease;
-  a {
-    color: var(--blue-color);
-  }
-}
-
-#sidebar .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  width: 100%;
-}
-#sidebar .logo img {
-  width: 130px;
-  height: 130px;
-  position: relative;
-  top: -30px;
-  left: -15px;
 }
 
 /* main .content*/
@@ -829,7 +613,7 @@ main {
   font-size: var(--font-size);
   margin: auto;
   width: 750px;
-  height: 450px;
+  height: 500px;
   .pop-up-header {
     display: flex;
     justify-content: center;
@@ -868,6 +652,13 @@ main {
     resize: none;
     color: #000;
     outline: none;
+  }
+
+  #encadreur-stage-effectif {
+    width: 390px;
+  }
+  #encadreur-stage-effectif:focus {
+    background-color: #f0f0f0;
   }
   button:nth-child(1) {
     background-color: transparent;
